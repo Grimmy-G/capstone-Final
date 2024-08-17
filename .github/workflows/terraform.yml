@@ -34,7 +34,8 @@ jobs:
 
       - name: Create S3 Bucket
         run: |
-          aws s3 mb s3://my-valid-bucket-name --region us-east-1
+          aws s3 mb s3://capstone-project-capstoneF-test-24-08-16  # Added 'run:'
+
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
