@@ -32,8 +32,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.REGION }}
 
-      - name: Create S3 Bucket
-        run: aws s3 mb s3://capstone-project-capstoneFinal-exam-24-08-16
+            - name: Create S3 Bucket
+        run: aws s3 mb s3://my-valid-bucket-name --region us-east-1
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
