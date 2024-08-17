@@ -10,7 +10,7 @@ spec:
   ingressClassName: nginx
   rules:
   - host:
-    http:
+    http: sock.laurent.site
       paths:
       - path: /
         pathType: Prefix
