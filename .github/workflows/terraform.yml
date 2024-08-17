@@ -22,8 +22,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
@@ -34,10 +32,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.REGION }}
 
-        
       - name: Create S3 Bucket
         run: aws s3 mb s3://capstone-project-capstoneFinal-exam-24-08-16
-
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
@@ -53,8 +49,7 @@ jobs:
           terraform -chdir=terraform/ init
           terraform -chdir=terraform apply --auto-approve
 
-
-     -  name: Update kubeconfig
+      - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig --region us-east-1 --name sockshop
           kubectl create namespace sock-shop
@@ -64,12 +59,3 @@ jobs:
           helm repo add ingress https://kubernetes.github.io/ingress-nginx
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo add jetstack https://charts.jetstack.io
-
-
-
-
-
-
-
-
-
