@@ -32,14 +32,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.REGION }}
 
-            - name: Create S3 Bucket
-        run: aws s3 mb s3://my-valid-bucket-name --region us-east-1
+      - name: Create S3 Bucket
+        run: |
+          aws s3 mb s3://my-valid-bucket-name --region us-east-1
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
 
       - name: Install Helm
-        uses: azure/setup-helm@v4.2.0
+        uses: azure/setup-helm@v4.
 
       - name: setup terraform
         uses: hashicorp/setup-terraform@v2
